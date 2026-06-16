@@ -76,15 +76,20 @@ export default function RootLayout({
               description:
                 "Specialized motorcycle insurance for adventure bikes, dual-sport riders, and overland explorers. Licensed in all 50 states.",
               url: "https://adventurebikeinsurance.com",
-              telephone: "+1-844-967-5247",
+              telephone: "+18449675247",
               email: "josh@contractorschoiceagency.com",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "12220 E Riggs Rd",
+                streetAddress: "12220 E Riggs Road Suite #105",
                 addressLocality: "Chandler",
                 addressRegion: "AZ",
                 postalCode: "85249",
                 addressCountry: "US",
+              },
+              employee: {
+                "@type": "Person",
+                name: "Josh Cotner",
+                jobTitle: "Insurance Agent",
               },
               areaServed: "United States",
               serviceType: [
