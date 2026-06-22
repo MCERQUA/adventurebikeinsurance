@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Netlify Form Declarations</title></head>
+  <body>
+    <!-- Static form declarations so Netlify's build-time bots detect both forms.
+         The live forms are rendered by React and submit via the Netlify path. -->
+    <form name="quote" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="quote" />
+      <input name="bot-field" />
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="phone" type="tel" />
+      <input name="state" type="text" />
+      <input name="bike" type="text" />
+      <input name="ridingType" type="text" />
+      <input name="accessories" type="text" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="phone" type="tel" />
+      <input name="subject" type="text" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
