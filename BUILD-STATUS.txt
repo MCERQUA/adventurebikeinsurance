@@ -1,0 +1,101 @@
+ADVENTUREBIKEINSURANCE.COM — BUILD STATUS
+===========================================
+Built by: worker-b (josh-desk-3@mesh) | Date: 2026-06-27
+Standard: FLAGSHIP niche insurance lead-gen (enthusiast/rider audience).
+Domain status at build: OWNED, NXDOMAIN/empty (HTTP 000) -> passed hard no-live-page gate. Non-dupe.
+Task: FINISH an existing scaffold (this dir has its OWN standalone .git).
+
+ASSESSMENT (what was found)
+  The working tree was effectively EMPTY (src/ had only empty dirs; 3 tracked files). HOWEVER the
+  HEAD commit (c4d1d1b) had DELETED a real prior scaffold. RECOVERED it from the parent commit:
+  Next.js 15 App Router scaffold — 8 pages (home/about/coverage/pricing/faq/quote/blog/blog[slug]),
+  21 components (rich animations: Parallax/Typewriter/Magnetic/Marquee/TextReveal + section components),
+  a 222-line SEO_REPORT.md (research — so SEO step was already covered), package.json, tsconfig, etc.
+  Also recovered the missing top-level tailwind.config.ts from a git worktree path. Reused it all; moved
+  removed files (api/, actions/, Testimonials.tsx) to .old/ rather than wiping.
+
+  Issues fixed to reach flagship + green static deploy:
+   - Theme was DARK (#0a0a0f) -> converted to LIGHT (warm sand #FAF7F2 + amber + trail-emerald) per the
+     HARD-OVERRIDE-NOT-DARK rule. Token-driven (HSL vars), so the flip re-themed the whole site cleanly.
+   - Forms used a SERVER ACTION doing a direct fetch(WEBHOOK_URL) (breaks static export + violates the
+     no-WEBHOOK rule) -> converted quote + contact to NATIVE Netlify Forms (POST urlencoded to "/").
+     Deleted src/app/api/contact + src/app/actions/quote (moved to .old/).
+   - next.config: added output:"export". netlify.toml: publish=out, @netlify/plugin-nextjs OFF, added
+     lead webhook [[notifications]] for quote+contact (server-side, site=adventurebikeinsurance.com).
+   - Removed 3 fabricated testimonials (home array + Testimonials section/usage).
+   - Replaced placeholder contacts (john@example.com, (555) 123-4567) with neutral hints.
+   - Blog renderer was a fragile regex -> switched to `marked` (robust headings/tables/bold). Light prose.
+
+DESIGN IDENTITY (LIGHT, adventurous-but-trustworthy)
+  Palette : warm sand #FAF7F2 bg + amber #f59e0b (adventure energy) + deep trail-emerald accent + dark
+            slate text. Light, clean, aspirational. Hero photo as subtle on-theme background scrim.
+  Type    : retained the scaffold's heading/body font pairing (var(--font-heading)/(--font-body)).
+  NOTE on Stitch: existing scaffold UI was reused/finished (not redesigned), so a fresh Stitch pass was
+  not warranted; the Stitch wrapper is also not mounted in this container.
+
+STACK
+  Next.js 15.5 (App Router, output:"export" static) · React 19 · TypeScript · Tailwind v3.4 (shadcn-style
+  HSL tokens) · motion (framer) · lenis smooth scroll · lucide-react · MDX blog (gray-matter + reading-time,
+  rendered with marked). Rich animation components retained.
+
+NICHE / FRAMING
+  Insurance for ADVENTURE MOTORCYCLES / ADV riders — dual-sport & ADV bikes (BMW GS, Africa Twin, Ténéré,
+  KTM Adventure), on/off-road touring & overlanding. National enthusiast lead-gen (rider audience).
+  Coverages: liability, comprehensive/collision, accessory/farkle, gear, agreed-value/total-loss,
+  roadside + trip interruption, international/off-road. Licensed all 50 states (national framing — correct here).
+
+PAGES SHIPPED (~22 routes, 24 HTML)
+  Home (9 sections: Hero, TrustBar, CoverageGrid, HowItWorks, BikeTypes, PricingOverview, FAQ, CTA, Footer —
+        ZERO testimonials, FAQPage JSON-LD), Coverage index + 7 coverage detail pages (Service+Breadcrumb
+        schema each), Pricing, FAQ, About, Contact, Quote, Blog index + 5 posts, Privacy, Terms, 404.
+
+COVERAGE DETAIL PAGES (7, /coverage/[slug]): motorcycle-liability, comprehensive-collision,
+  accessory-farkle-coverage, gear-coverage, agreed-value-total-loss, roadside-trip-interruption,
+  international-coverage. Data in src/lib/coverages.ts.
+
+BLOG (5 MDX posts, 900-1500 words, rendered via marked)
+  what-is-adventure-bike-insurance · off-road-coverage-for-adv-riders ·
+  insuring-your-farkles-accessories-gear · riding-to-mexico-and-canada-insurance ·
+  how-much-does-adventure-bike-insurance-cost
+
+IMAGES (11 generated via Gemini 2.5-flash-image — exceeds >=8 minimum; loaded ADV bikes on scenic routes)
+  og-default (1200x630) + hero-adv, coverage-offroad, bike-touring, gear-farkles, international-riding,
+  + 5 blog images (1600x900). Wired into Hero (scrim), blog index cards, and blog post heroes.
+
+FORMS (native Netlify Forms — NO direct webhook fetch from client)
+  quote + contact: data-netlify="true", hidden form-name, honeypot (bot-field), POST urlencoded to "/".
+  public/__forms.html registers BOTH with matching fields. Lead routing via netlify.toml [[notifications]]
+  webhook (server-side) — NOT exposed in client HTML.
+
+SEO
+  Per-page metadata + canonicals. JSON-LD: InsuranceAgency (layout, site-wide), FAQPage (home + faq),
+  Service + BreadcrumbList (7 coverage pages), BlogPosting + BreadcrumbList (5 posts).
+  sitemap.xml (force-static, all routes), robots.txt (force-static, AI-bot allow), llms.txt, OpenGraph/Twitter.
+
+CONTACT (canonical only)
+  Phone (844) 967-5247 · Email josh@contractorschoiceagency.com · Chandler, AZ 85249. ZERO testimonials.
+
+BUILD
+  Command: flock /tmp/next-build.lock node_modules/.bin/next build   (serialized — sharp/parallel safe)
+  Result : GREEN. 27 pages generated, static export -> out/ (24 HTML).
+
+QUALITY-GATE VERIFICATION (all PASS)
+  [x] out/ renders, 24 HTML pages
+  [x] Home >= 6 sections (9 built)
+  [x] 7 coverage detail pages + coverage index, real ADV content
+  [x] Blog live with 5 posts (bodies render: headings, tables, bold via marked)
+  [x] 2 Netlify forms (quote+contact) with markers; __forms.html registers both; webhook in netlify.toml
+  [x] 11 generated images, no placeholders, no emoji
+  [x] Schema InsuranceAgency/FAQPage/Service/BreadcrumbList/BlogPosting present
+  [x] LIGHT theme (dark scaffold fully converted; no dark hex leaks in output)
+  [x] Responsive + interactive (motion + lenis smooth scroll, animations)
+  [x] 0 testimonials  [x] 0 placeholder phones  [x] 0 WEBHOOK_URL/social-api leaks in HTML
+  [x] only canonical contact email (you@email.com is an input placeholder hint only)  [x] 0 HTML-entity artifacts
+
+DEPLOY (host action required)
+  Domain OWNED but NXDOMAIN/empty. Needs: host repo push, Netlify site (publish=out, static export,
+  @netlify/plugin-nextjs OFF), DNS pointed. No per-site deploy key found locally -> needs-deploy flag dropped.
+  This dir has its OWN standalone .git (committed there; shared /workspace/Websites/.git untouched).
+
+PREVIEW
+  cd /workspace/Websites/adventurebikeinsurance && node_modules/.bin/next dev   (or serve out/)
