@@ -1,0 +1,17 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+Sitemap: https://adventurebikeinsurance.com/sitemap.xml
