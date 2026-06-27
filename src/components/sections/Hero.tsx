@@ -2,6 +2,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 function fade(delay: number, prefersReduced: boolean | null) {
   return {
@@ -16,6 +17,16 @@ export function Hero() {
 
   return (
     <section className="relative bg-background pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      {/* Hero photo background (subtle, on-theme light scrim) */}
+      <Image
+        src="/images/hero-adv.jpg"
+        alt="Loaded adventure motorcycle riding a scenic mountain trail"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-20"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background" />
       {/* Background terrain pattern */}
       <div className="absolute inset-0 bg-terrain opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />

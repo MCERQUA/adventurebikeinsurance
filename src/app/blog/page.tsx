@@ -4,6 +4,7 @@ import { Footer } from "@/components/sections/Footer";
 import { getAllPosts } from "@/lib/blog";
 import { FadeIn } from "@/components/animations/FadeIn";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -77,8 +78,19 @@ export default function BlogPage() {
                 <FadeIn key={post.slug} delay={i * 0.1}>
                   <Link href={`/blog/${post.slug}`} className="group block">
                     <article className="rounded-xl overflow-hidden bg-card border border-border group-hover:border-primary/30 transition-colors h-full flex flex-col">
-                      {/* Colored header bar instead of image */}
-                      <div className="h-3 bg-gradient-to-r from-primary to-accent" />
+                      {post.image ? (
+                        <div className="relative h-44 overflow-hidden">
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      ) : (
+                        <div className="h-3 bg-gradient-to-r from-primary to-accent" />
+                      )}
 
                       <div className="p-6 flex-grow flex flex-col">
                         <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
