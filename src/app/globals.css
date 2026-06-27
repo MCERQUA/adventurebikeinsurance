@@ -109,3 +109,20 @@ h1, h2, h3, h4, h5, h6 {
 .bg-gradient-adventure {
   background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(40 30% 94%) 50%, hsl(var(--background)) 100%);
 }
+
+/* ===== BLOG POST BODY (marked-rendered, LIGHT) ===== */
+.prose-adv { color: hsl(var(--foreground)); line-height: 1.8; font-size: 1.05rem; }
+.prose-adv h2 { font-family: var(--font-heading), system-ui, sans-serif; font-size: 1.6rem; font-weight: 700; color: hsl(var(--foreground)); margin-top: 2.2rem; margin-bottom: 1rem; }
+.prose-adv h3 { font-family: var(--font-heading), system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; color: hsl(var(--foreground)); margin-top: 1.6rem; margin-bottom: 0.7rem; }
+.prose-adv p { color: hsl(var(--muted-foreground)); margin-bottom: 1.1rem; }
+.prose-adv ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.1rem; }
+.prose-adv ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.1rem; }
+.prose-adv li { color: hsl(var(--muted-foreground)); margin-bottom: 0.5rem; }
+.prose-adv strong { color: hsl(var(--foreground)); font-weight: 700; }
+.prose-adv a { color: hsl(var(--primary)); font-weight: 600; text-decoration: none; }
+.prose-adv a:hover { text-decoration: underline; }
+.prose-adv blockquote { border-left: 3px solid hsl(var(--primary) / 0.5); padding-left: 1rem; color: hsl(var(--muted-foreground)); font-style: italic; margin: 1.2rem 0; }
+.prose-adv table { width: 100%; border-collapse: collapse; margin: 1.4rem 0; font-size: 0.95rem; }
+.prose-adv th { background: hsl(var(--secondary)); color: hsl(var(--foreground)); font-weight: 700; text-align: left; padding: 10px 12px; border: 1px solid hsl(var(--border)); }
+.prose-adv td { padding: 10px 12px; border: 1px solid hsl(var(--border)); color: hsl(var(--muted-foreground)); }
+.prose-adv h2:first-child, .prose-adv h3:first-child { margin-top: 0; }

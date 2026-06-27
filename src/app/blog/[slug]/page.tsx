@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { marked } from "marked";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -123,29 +124,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
 
             <div
-              className="prose prose-invert prose-lg max-w-none
-                prose-headings:font-heading prose-headings:font-bold
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-foreground
-                prose-blockquote:border-primary/50 prose-blockquote:text-muted-foreground
-                prose-li:text-muted-foreground
-                prose-hr:border-border"
-              dangerouslySetInnerHTML={{
-                __html: post.content
-                  .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-                  .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-                  .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                  .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                  .replace(/^- (.*$)/gim, '<li>$1</li>')
-                  .replace(/(<li>[\s\S]*<\/li>)/, '<ul>$1</ul>')
-                  .replace(/\n\n/g, '</p><p>')
-                  .replace(/^(?!<[hulo])/gm, '<p>')
-                  .replace(/([^>])$/gm, '</p>$1')
-              }}
+              className="prose-adv"
+              dangerouslySetInnerHTML={{ __html: marked.parse(post.content, { async: false }) as string }}
             />
           </FadeIn>
         </div>
