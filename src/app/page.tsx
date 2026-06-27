@@ -2,7 +2,6 @@ import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/sections/Footer";
 import { FAQ } from "@/components/sections/FAQ";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CoverageGrid } from "@/components/sections/CoverageGrid";
@@ -54,27 +53,6 @@ const homeFAQs = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Marcus Reinhardt",
-    role: "Overlander, BMW R1250GSA — Denver, Colorado",
-    text: "I ride from Colorado to Baja every year and could never find insurance that covered the full trip. These guys got me a policy that covers me on dirt roads, in Mexico, and all my gear — panniers, tent, the works. When I had a flat 80 miles from the nearest town in Sonora, the trip interruption coverage kicked in and paid for my hotel and tow. That policy paid for itself ten times over.",
-    rating: 5,
-  },
-  {
-    name: "Jennifer Park",
-    role: "Daily dual-sport commuter, KTM 890 Adventure R — Portland, Oregon",
-    text: "I commute on forest service roads and gravel paths that standard insurance wouldn't cover. They found me a carrier with an off-road extension that covers exactly how I ride — fire roads, unmaintained county roads, the whole thing. Quote took 10 minutes and saved me about $200 a year compared to what I was paying for less coverage through a major carrier.",
-    rating: 5,
-  },
-  {
-    name: "David Chen",
-    role: "International adventure rider, Honda Africa Twin — Austin, Texas",
-    text: "Planning a Pan-American trip from Texas to Argentina and the insurance situation was a nightmare — every carrier had different rules for every country. Josh walked me through the options, set up coverage that works in Mexico, Central America, and most of South America, and even helped me understand which countries require local liability policies. Knowledgeable, responsive, and they actually ride.",
-    rating: 5,
-  },
-];
-
 export default function HomePage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -98,7 +76,6 @@ export default function HomePage() {
       <HowItWorks />
       <BikeTypes />
       <PricingOverview />
-      <Testimonials testimonials={testimonials} />
       <FAQ
         faqs={homeFAQs}
         eyebrow="Adventure Insurance FAQ"
