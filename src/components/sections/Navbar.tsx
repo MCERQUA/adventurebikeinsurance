@@ -11,6 +11,7 @@ const navItems = [
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
