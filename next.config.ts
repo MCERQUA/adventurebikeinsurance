@@ -1,14 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Required for JamBot canvas iframe embedding (cross-origin dev server)
-  allowedDevOrigins: ["*.jam-bot.com"],
-  images: {
-    remotePatterns: [
-      // Add client's image CDN or CMS domain here
-      // { protocol: "https", hostname: "images.unsplash.com" },
-    ],
-  },
+  // Static export — REQUIRED for Netlify Forms to capture leads (plain HTML forms).
+  output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

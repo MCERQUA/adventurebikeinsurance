@@ -2,33 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== DESIGN TOKENS — Adventure Bike Insurance ===== */
+/* ===== DESIGN TOKENS — Adventure Bike Insurance (LIGHT) ===== */
 
 @layer base {
 :root {
-  --background: 240 10% 4%;          /* #0a0a0f */
-  --foreground: 214 32% 91%;          /* #e2e8f0 */
+  --background: 36 30% 97%;           /* #FAF7F2 — warm sand white */
+  --foreground: 215 28% 17%;          /* #1f2937 — dark slate */
 
-  --card: 222 47% 7%;                 /* #0d1117 */
-  --card-foreground: 214 32% 91%;     /* #e2e8f0 */
+  --card: 0 0% 100%;                  /* #ffffff */
+  --card-foreground: 215 28% 17%;
 
-  --primary: 38 92% 50%;              /* #f59e0b — Amber */
-  --primary-foreground: 0 0% 5%;      /* #0d0d0d */
+  --primary: 38 92% 50%;              /* #f59e0b — Amber (adventure energy) */
+  --primary-foreground: 30 30% 10%;   /* near-black on amber */
 
-  --secondary: 215 20% 15%;           /* #1e293b */
-  --secondary-foreground: 214 32% 91%;
+  --secondary: 40 25% 93%;            /* #f1ede6 — light warm */
+  --secondary-foreground: 215 28% 20%;
 
-  --accent: 160 84% 39%;              /* #10b981 — Emerald */
+  --accent: 162 73% 30%;              /* #0e8a6b — deep trail emerald */
   --accent-foreground: 0 0% 100%;
 
-  --muted: 215 20% 15%;               /* #1e293b */
-  --muted-foreground: 215 16% 62%;    /* #94a3b8 */
+  --muted: 40 20% 92%;                /* #eeeae2 */
+  --muted-foreground: 215 16% 42%;    /* #5b6573 — readable on light */
 
-  --destructive: 0 84% 60%;           /* #ef4444 */
+  --destructive: 0 72% 48%;           /* #d12b2b */
   --destructive-foreground: 0 0% 100%;
 
-  --border: 215 20% 15%;              /* #1e293b */
-  --input: 215 20% 15%;
+  --border: 38 18% 86%;               /* #e4ddd2 */
+  --input: 38 18% 86%;
   --ring: 38 92% 50%;                 /* same as primary */
 
   --radius: 0.75rem;
@@ -91,21 +91,21 @@ h1, h2, h3, h4, h5, h6 {
   background: hsl(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
+  background: hsl(var(--muted-foreground) / 0.4);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: hsl(var(--muted-foreground) / 0.7);
 }
 
 /* ===== ADVENTURE PATTERN BACKGROUNDS ===== */
 
 .bg-terrain {
-  background-image: radial-gradient(circle at 25% 25%, hsl(var(--muted) / 0.3) 1px, transparent 1px),
-                    radial-gradient(circle at 75% 75%, hsl(var(--muted) / 0.2) 1px, transparent 1px);
+  background-image: radial-gradient(circle at 25% 25%, hsl(var(--muted-foreground) / 0.10) 1px, transparent 1px),
+                    radial-gradient(circle at 75% 75%, hsl(var(--muted-foreground) / 0.07) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .bg-gradient-adventure {
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 40% 8%) 50%, hsl(var(--background)) 100%);
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(40 30% 94%) 50%, hsl(var(--background)) 100%);
 }

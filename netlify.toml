@@ -1,10 +1,23 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  # Static export output dir — REQUIRED for Netlify Forms capture.
+  publish = "out"
 
 [build.environment]
   NEXT_DISABLE_TURBOPACK = "1"
-  NODE_VERSION = "18"
+  NEXT_TELEMETRY_DISABLED = "1"
+  NODE_VERSION = "20"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# NOTE: @netlify/plugin-nextjs INTENTIONALLY REMOVED — its runtime intercepts
+# form POSTs and breaks Netlify Forms lead capture. Static export emits plain
+# HTML forms the Netlify form backend handles directly.
+
+[[notifications]]
+  event = "submission_created"
+  url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=adventurebikeinsurance.com"
+  form = "quote"
+
+[[notifications]]
+  event = "submission_created"
+  url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=adventurebikeinsurance.com"
+  form = "contact"
