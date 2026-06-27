@@ -7,6 +7,7 @@ import { Footer } from "@/components/sections/Footer";
 import { CTA } from "@/components/sections/CTA";
 import { FadeIn } from "@/components/animations/FadeIn";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 
 export function generateStaticParams() {
@@ -122,6 +123,19 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <p className="mt-4 text-muted-foreground">By {post.author}</p>
               )}
             </div>
+
+            {post.image && (
+              <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg mb-10">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                />
+              </div>
+            )}
 
             <div
               className="prose-adv"
