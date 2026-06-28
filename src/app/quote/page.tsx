@@ -4,6 +4,7 @@ import { Send, CheckCircle, Phone } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { AeoFields } from "@/components/AeoFields";
 
 const bikeMakes = [
   "BMW", "Honda", "KTM", "Triumph", "Yamaha", "Suzuki", "Kawasaki",
@@ -101,6 +102,7 @@ export default function QuotePage() {
               className="space-y-8"
             >
               <input type="hidden" name="form-name" value="quote" />
+              <AeoFields />
               <p className="hidden">
                 <label>
                   Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />

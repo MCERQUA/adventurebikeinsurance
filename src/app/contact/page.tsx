@@ -4,6 +4,7 @@ import { Send, CheckCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { AeoFields } from "@/components/AeoFields";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -146,6 +147,7 @@ export default function ContactPage() {
                 className="p-6 md:p-8 rounded-xl bg-card border border-border space-y-6"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <AeoFields />
                 <p className="hidden">
                   <label>
                     Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
