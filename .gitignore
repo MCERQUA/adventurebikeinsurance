@@ -24,3 +24,5 @@ out/
 dist/
 .netlify/
 .turbo/
+
+.autosave-gated
