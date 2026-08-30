@@ -7,6 +7,7 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { CoverageGrid } from "@/components/sections/CoverageGrid";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { BikeTypes } from "@/components/sections/BikeTypes";
+import { RealBikes } from "@/components/sections/RealBikes";
 import { PricingOverview } from "@/components/sections/PricingOverview";
 import { FadeIn } from "@/components/animations/FadeIn";
 
@@ -75,6 +76,7 @@ export default function HomePage() {
       <CoverageGrid />
       <HowItWorks />
       <BikeTypes />
+      <RealBikes />
       <PricingOverview />
       <FAQ
         faqs={homeFAQs}
