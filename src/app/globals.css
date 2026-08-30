@@ -126,3 +126,20 @@ h1, h2, h3, h4, h5, h6 {
 .prose-adv th { background: hsl(var(--secondary)); color: hsl(var(--foreground)); font-weight: 700; text-align: left; padding: 10px 12px; border: 1px solid hsl(var(--border)); }
 .prose-adv td { padding: 10px 12px; border: 1px solid hsl(var(--border)); color: hsl(var(--muted-foreground)); }
 .prose-adv h2:first-child, .prose-adv h3:first-child { margin-top: 0; }
+
+/* Article body figures — real photography embedded in blog posts. */
+.prose-adv figure.adv-figure { margin: 1.8rem 0; }
+.prose-adv figure.adv-figure img {
+  display: block; width: 100%; height: auto;
+  border-radius: 14px; border: 1px solid hsl(var(--border));
+  box-shadow: 0 6px 20px -8px hsl(var(--foreground) / 0.25);
+}
+.prose-adv figure.adv-figure--portrait { max-width: 460px; margin-left: auto; margin-right: auto; }
+.prose-adv figure.adv-figure figcaption {
+  margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.6;
+  color: hsl(var(--muted-foreground));
+  border-left: 3px solid hsl(var(--primary) / 0.5); padding-left: 0.75rem;
+}
+/* Wide spec tables must scroll inside the column, never widen the page. */
+.prose-adv table { display: block; overflow-x: auto; }
+.prose-adv table th, .prose-adv table td { min-width: 7.5rem; }

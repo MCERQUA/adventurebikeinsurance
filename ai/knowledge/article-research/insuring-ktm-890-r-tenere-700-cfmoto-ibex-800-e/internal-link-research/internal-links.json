@@ -1,0 +1,24 @@
+{
+  "internal": [
+    {"anchor": "off-road coverage", "href": "/coverage/comprehensive-collision", "reason": "core coverage page"},
+    {"anchor": "accessory and custom-parts coverage", "href": "/coverage/accessory-farkle-coverage", "reason": "money page, farkle section"},
+    {"anchor": "agreed-value and total-loss coverage", "href": "/coverage/agreed-value-total-loss", "reason": "total-loss section"},
+    {"anchor": "roadside assistance and trip interruption", "href": "/coverage/roadside-trip-interruption", "reason": "remote-recovery section"},
+    {"anchor": "riding gear coverage", "href": "/coverage/gear-coverage", "reason": "gloves-on-the-seat photo tie-in"},
+    {"anchor": "what adventure bike insurance actually is", "href": "/blog/what-is-adventure-bike-insurance", "reason": "pillar post"},
+    {"anchor": "where off-road coverage starts and stops", "href": "/blog/off-road-coverage-for-adv-riders", "reason": "sibling post"},
+    {"anchor": "insuring your farkles", "href": "/blog/insuring-your-farkles-accessories-gear", "reason": "sibling post"},
+    {"anchor": "what ADV coverage costs", "href": "/blog/how-much-does-adventure-bike-insurance-cost", "reason": "sibling post"},
+    {"anchor": "crossing into Mexico or Canada", "href": "/blog/riding-to-mexico-and-canada-insurance", "reason": "sibling post"},
+    {"anchor": "get a quote", "href": "/quote", "reason": "primary CTA"}
+  ],
+  "outbound": [
+    "https://www.ktm.com/en-us/models/adventure/2026-ktm-890-adventurer/technical-specifications.html",
+    "https://www.yamahamotorsports.com/models/tenere-700/specs",
+    "https://www.motorcycle.com/specs/cfmoto/on-off-road/2026/ibex/800-e/detail.html",
+    "https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813824",
+    "https://www.progressive.com/answers/motorcycle-accessory-coverage/",
+    "https://www.nicb.org/news/news-releases/lock-your-bikes-motorcycle-thefts-rise-third-consecutive-year",
+    "https://www.iii.org/article/background-on-motorcycle-crashes"
+  ]
+}

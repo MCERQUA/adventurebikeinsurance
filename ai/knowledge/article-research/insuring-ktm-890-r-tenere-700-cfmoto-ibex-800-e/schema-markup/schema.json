@@ -1,0 +1,112 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Insuring a KTM 890 R, Ténéré 700, or CFMOTO Ibex 800 E",
+  "description": "Three adventure bikes, three completely different insurance problems.",
+  "datePublished": "2026-08-30",
+  "dateModified": "2026-08-30",
+  "author": {
+   "@type": "Organization",
+   "name": "Adventure Bike Insurance"
+  },
+  "publisher": {
+   "@type": "InsuranceAgency",
+   "name": "Adventure Bike Insurance",
+   "url": "https://adventurebikeinsurance.com"
+  },
+  "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": "https://adventurebikeinsurance.com/blog/insuring-ktm-890-r-tenere-700-cfmoto-ibex-800-e"
+  },
+  "articleSection": "Bike Guides",
+  "image": "https://adventurebikeinsurance.com/images/ktm-890-adventure-r-front.jpg",
+  "note": "BlogPosting + BreadcrumbList are emitted by src/app/blog/[slug]/page.tsx at build time; this file records them for provenance."
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Does motorcycle insurance cover riding on dirt or fire roads?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Often not. Most standard motorcycle policies are written around paved public roads and either exclude unpaved use or never address it, which produces the same result at claim time. You need a policy that explicitly contemplates recreational off-pavement riding."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is a KTM 890 Adventure R more expensive to insure than a Tenere 700?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Usually, yes. At $16,299 versus $10,999 the replacement cost is roughly 48% higher, and the 890 R's larger 889 cc engine typically rates above the Tenere's 689 cc. The gap widens further once accessories are scheduled."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Are the CFMOTO Ibex 800 E's factory crash bars covered like accessories?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No, and that is in your favour. Because the bars and skid plate are fitted at the factory, they are part of the motorcycle's insured value rather than items counting against a capped accessory limit. Your accessory limit stays free for what you add yourself."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How much accessory coverage do I get by default?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Typically $1,000 to $3,000. Progressive, for instance, automatically includes $3,000 with comprehensive and collision and will sell up to $30,000. A moderately equipped adventure build passes $3,000 easily."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "What happens if I drop my adventure bike at a standstill?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "It is a collision claim, and on these bikes it is the most common one. A tip-over on a $16,299 KTM commonly runs $900 to $2,000 in plastics and levers, close enough to many deductibles that riders end up paying out of pocket on a bike they insure fully."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Does the 21-inch front wheel change my premium?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Not directly, but it signals how the bike gets used. The 890 R and Tenere 700 run 21-inch fronts and genuinely go off pavement; the Ibex 800 E's 19-inch front and 6.3 inches of travel are road-biased. That difference should shape which coverages you prioritise."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How far will roadside assistance tow an adventure bike?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Standard programmes commonly start around 15 miles to the nearest facility. That is frequently inadequate for adventure riding, where the nearest qualified shop can be over a hundred miles away. Ask for the mileage figure explicitly."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is a two-year factory warranty the same as mechanical breakdown coverage?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. The Ibex 800 E's 24-month warranty and the Tenere 700's 12-month warranty cover manufacturing defects only. Neither covers crash damage, theft, drops, or anything that happens because of how or where you rode."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Does a cheaper bike always mean a cheaper policy?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. Premiums track displacement, vehicle classification, parts and repair cost, and theft and loss history, not sticker price alone. The Ibex 800 E is the cheapest of the three to buy and is not automatically the cheapest to insure."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "What should I tell my agent when I insure an adventure bike?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "State plainly that you ride off pavement, hand over an itemised accessory list with receipts, ask for your tow distance in miles, confirm whether riding gear is covered, and ask whether the bike can be written on an agreed or stated value."
+    }
+   }
+  ]
+ }
+]
