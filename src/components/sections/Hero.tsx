@@ -24,12 +24,32 @@ export function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-[0.28]"
+        className="object-cover opacity-[0.72]"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background" />
+      {/*
+        Overlay rebalance (Mike, 2026-08-30: "hero overlay is way too heavy").
+        Previously FOUR stacked layers sat on this photo — image at 0.28, a
+        /85 linear scrim, terrain at 0.40, then a second /60 scrim — leaving
+        the bike roughly 2-4% visible. It was a photo you could not see.
+
+        This is a LIGHT theme (#FAF7F2) with dark slate text, so the scrim
+        cannot simply be thinned: the headline needs a pale surface behind it.
+        Hence one RADIAL scrim instead of two linear ones — opaque background
+        under the centred text block, falling away at the edges so the bike
+        actually reads. Contrast behind the headline is unchanged (solid
+        background at the centre); only the periphery got lighter.
+      */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 78% 68% at 50% 48%, hsl(var(--background)) 0%, hsl(var(--background) / 0.90) 46%, hsl(var(--background) / 0.45) 78%, hsl(var(--background) / 0.20) 100%)",
+        }}
+      />
       {/* Background terrain pattern */}
-      <div className="absolute inset-0 bg-terrain opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
+      <div className="absolute inset-0 bg-terrain opacity-[0.15]" />
+      {/* Soft landing into the next section only — no full-height wash */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
 
       {/* Decorative compass radial */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-primary/5" />
