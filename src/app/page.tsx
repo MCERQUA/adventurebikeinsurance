@@ -9,7 +9,6 @@ import { RealBikes } from "@/components/sections/RealBikes";
 import { GearedUp } from "@/components/sections/GearedUp";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { BikeTypes } from "@/components/sections/BikeTypes";
-import { RealBikes } from "@/components/sections/RealBikes";
 import { PricingOverview } from "@/components/sections/PricingOverview";
 import { FadeIn } from "@/components/animations/FadeIn";
 
@@ -80,7 +79,6 @@ export default function HomePage() {
       <HowItWorks />
       <GearedUp />
       <BikeTypes />
-      <RealBikes />
       <PricingOverview />
       <FAQ
         faqs={homeFAQs}

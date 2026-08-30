@@ -37,7 +37,7 @@ export function RealBikes() {
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl ring-1 ring-border/60 shadow-2xl">
               <Image
                 src="/images/ktm-890-adventure-fuel-stop.jpg"
-                alt="KTM 890 Adventure loaded with panniers and a tail rack, parked at a fuel pump at sunset with riding gloves resting on the seat"
+                alt="KTM 890 Adventure parked at a Circle K fuel pump with a luggage rack fitted at the rear and riding gloves resting on the seat"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
@@ -45,7 +45,7 @@ export function RealBikes() {
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-xs uppercase tracking-widest text-accent font-medium">
-                  Fuel stop, Arizona
+                  Circle K fuel stop
                 </p>
                 <p className="text-sm text-foreground/90 font-heading font-semibold">
                   KTM 890 Adventure — loaded and running
