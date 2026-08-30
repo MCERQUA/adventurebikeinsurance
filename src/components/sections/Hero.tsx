@@ -19,12 +19,12 @@ export function Hero() {
     <section className="relative bg-background pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       {/* Hero photo background (subtle, on-theme light scrim) */}
       <Image
-        src="/images/hero-adv.jpg"
-        alt="Loaded adventure motorcycle riding a scenic mountain trail"
+        src="/images/ktm-890-adventure-r-front.jpg"
+        alt="KTM 890 Adventure R with knobby tires and orange handguards"
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-20"
+        className="object-cover opacity-[0.28]"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background" />
       {/* Background terrain pattern */}

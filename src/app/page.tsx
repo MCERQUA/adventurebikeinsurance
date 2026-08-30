@@ -5,6 +5,8 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CoverageGrid } from "@/components/sections/CoverageGrid";
+import { RealBikes } from "@/components/sections/RealBikes";
+import { GearedUp } from "@/components/sections/GearedUp";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { BikeTypes } from "@/components/sections/BikeTypes";
 import { PricingOverview } from "@/components/sections/PricingOverview";
@@ -73,7 +75,9 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <CoverageGrid />
+      <RealBikes />
       <HowItWorks />
+      <GearedUp />
       <BikeTypes />
       <PricingOverview />
       <FAQ

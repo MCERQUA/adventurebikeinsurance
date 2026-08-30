@@ -1,8 +1,20 @@
 "use client";
+import Image from "next/image";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerChildren, StaggerItem } from "@/components/animations/StaggerChildren";
 
-const categories = [
+type Category = {
+  title: string;
+  subtitle: string;
+  bikes: string[];
+  valueRange: string;
+  typicalPremium: string;
+  /** Optional real photo. Present only where the bike shown matches the category. */
+  image?: string;
+  imageAlt?: string;
+};
+
+const categories: Category[] = [
   {
     title: "Adventure Touring",
     subtitle: "Long-distance capability, highway comfort, off-road ready",
@@ -19,6 +31,11 @@ const categories = [
   },
   {
     title: "Middleweight ADV",
+    // Josh's own photo. This card is the ONLY one that gets one: the bike in the
+    // frame is a KTM 890 Adventure R, which is named in this card's `bikes` list.
+    // Do not reuse it on the touring/dual-sport cards — it would mislabel the class.
+    image: "/images/ktm-890-adventure-r-profile.jpg",
+    imageAlt: "KTM 890 Adventure R in profile, orange and black rally bodywork on knobby tires",
     subtitle: "The sweet spot — capable, comfortable, affordable",
     bikes: ["Yamaha Ténéré 700", "Suzuki V-Strom 650", "KTM 890 Adventure R", "Aprilia Tuareg 660", "Honda CB500X", "Kawasaki Versys 650"],
     valueRange: "$8,000 – $16,000",
@@ -57,7 +74,20 @@ export function BikeTypes() {
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {categories.map((cat) => (
             <StaggerItem key={cat.title}>
-              <div className="p-6 md:p-8 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors h-full">
+              <div className="rounded-xl bg-card border border-border hover:border-primary/30 transition-colors h-full overflow-hidden">
+                {cat.image && (
+                  <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full">
+                    <Image
+                      src={cat.image}
+                      alt={cat.imageAlt ?? cat.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                  </div>
+                )}
+                <div className="p-6 md:p-8">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="text-xl font-heading font-bold">{cat.title}</h3>
                   <span className="shrink-0 text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full whitespace-nowrap">
@@ -80,6 +110,7 @@ export function BikeTypes() {
                 <div className="pt-4 border-t border-border flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Typical bike value</span>
                   <span className="font-semibold text-foreground">{cat.valueRange}</span>
+                </div>
                 </div>
               </div>
             </StaggerItem>
