@@ -59,7 +59,7 @@ export function FAQ({
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section className="py-24 md:py-32 bg-card/30" id="faq">
+    <section className="py-24 md:py-32 bg-secondary/60" id="faq">
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         <FadeIn className="text-center mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">

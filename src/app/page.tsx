@@ -6,6 +6,7 @@ import { CTA } from "@/components/sections/CTA";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CoverageGrid } from "@/components/sections/CoverageGrid";
 import { RealBikes } from "@/components/sections/RealBikes";
+import { TerrainBand } from "@/components/sections/TerrainBand";
 import { GearedUp } from "@/components/sections/GearedUp";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { BikeTypes } from "@/components/sections/BikeTypes";
@@ -76,6 +77,7 @@ export default function HomePage() {
       <TrustBar />
       <CoverageGrid />
       <RealBikes />
+      <TerrainBand />
       <HowItWorks />
       <GearedUp />
       <BikeTypes />
