@@ -30,11 +30,9 @@ export default function QuotePage() {
 
     const formData = new FormData(e.currentTarget);
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
-      });
+      // multipart, not urlencoded: the licence and insurance-card fields are file
+      // inputs and a urlencoded body would send only their filenames.
+      await fetch("/", { method: "POST", body: formData });
       setIsSubmitted(true);
     } catch {
       // Static Netlify Forms still capture the POST; show success regardless.
@@ -98,6 +96,7 @@ export default function QuotePage() {
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
+              encType="multipart/form-data"
               onSubmit={handleSubmit}
               className="space-y-8"
             >
@@ -108,6 +107,298 @@ export default function QuotePage() {
                   Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
                 </label>
               </p>
+              {/* Driver, vehicle and current-policy details — the complete
+                  insurance-auto-powersports field set. */}
+              <div className="p-6 md:p-8 rounded-xl bg-card border border-border">
+                <h2 className="text-xl font-heading font-bold mb-6">Driver &amp; Licence</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="date_of_birth" className="block text-sm font-medium mb-2">
+                      Date of birth *
+                    </label>
+                    <input
+                      id="date_of_birth"
+                      name="date_of_birth"
+                      type="date"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="street_address" className="block text-sm font-medium mb-2">
+                      Street address *
+                    </label>
+                    <input
+                      id="street_address"
+                      name="street_address"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      placeholder="1234 W Main St, Phoenix, AZ 85001"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="drivers_license_number" className="block text-sm font-medium mb-2">
+                      Driver's license number *
+                    </label>
+                    <input
+                      id="drivers_license_number"
+                      name="drivers_license_number"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="drivers_license_issue_date" className="block text-sm font-medium mb-2">
+                      Driver's license issue date *
+                    </label>
+                    <input
+                      id="drivers_license_issue_date"
+                      name="drivers_license_issue_date"
+                      type="date"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="drivers_license_expiration_date" className="block text-sm font-medium mb-2">
+                      Driver's license expiration date *
+                    </label>
+                    <input
+                      id="drivers_license_expiration_date"
+                      name="drivers_license_expiration_date"
+                      type="date"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="drivers_license_upload" className="block text-sm font-medium mb-2">Driver's license — photo upload</label>
+                    <input
+                      id="drivers_license_upload"
+                      name="drivers_license_upload"
+                      type="file"
+                      accept="image/*,application/pdf"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label htmlFor="driver_names" className="block text-sm font-medium mb-2">
+                      All drivers — name, date of birth and licence number *
+                    </label>
+                    <textarea
+                      id="driver_names"
+                      name="driver_names"
+                      rows={3}
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground resize-none"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">One per line. Every driver must be listed or they are not covered.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8 rounded-xl bg-card border border-border">
+                <h2 className="text-xl font-heading font-bold mb-6">Vehicles &amp; Accessories</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="vehicle_year" className="block text-sm font-medium mb-2">
+                      Vehicle year *
+                    </label>
+                    <input
+                      id="vehicle_year"
+                      name="vehicle_year"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      placeholder="2021"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="vehicle_make" className="block text-sm font-medium mb-2">
+                      Vehicle make *
+                    </label>
+                    <input
+                      id="vehicle_make"
+                      name="vehicle_make"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="vehicle_model" className="block text-sm font-medium mb-2">
+                      Vehicle model *
+                    </label>
+                    <input
+                      id="vehicle_model"
+                      name="vehicle_model"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="vehicle_value" className="block text-sm font-medium mb-2">
+                      Vehicle value *
+                    </label>
+                    <input
+                      id="vehicle_value"
+                      name="vehicle_value"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      placeholder="$18,000"
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label htmlFor="vehicle_vin" className="block text-sm font-medium mb-2">
+                      VIN — every vehicle and trailer *
+                    </label>
+                    <textarea
+                      id="vehicle_vin"
+                      name="vehicle_vin"
+                      rows={3}
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground resize-none"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">One VIN per line. Every vehicle and trailer must be listed or it is not covered.</p>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label htmlFor="accessories_description" className="block text-sm font-medium mb-2">
+                      Description of accessories *
+                    </label>
+                    <textarea
+                      id="accessories_description"
+                      name="accessories_description"
+                      rows={3}
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground resize-none"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">Bags, exhaust, guards, electronics, and anything else you want covered.</p>
+                  </div>
+                  <div>
+                    <label htmlFor="accessories_value" className="block text-sm font-medium mb-2">
+                      Value of accessories *
+                    </label>
+                    <input
+                      id="accessories_value"
+                      name="accessories_value"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      placeholder="$2,500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-8 rounded-xl bg-card border border-border">
+                <h2 className="text-xl font-heading font-bold mb-6">Current Insurance</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="current_carrier_name" className="block text-sm font-medium mb-2">
+                      Current insurance company name *
+                    </label>
+                    <input
+                      id="current_carrier_name"
+                      name="current_carrier_name"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="current_policy_number" className="block text-sm font-medium mb-2">
+                      Current policy number *
+                    </label>
+                    <input
+                      id="current_policy_number"
+                      name="current_policy_number"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="current_policy_start_date" className="block text-sm font-medium mb-2">
+                      Policy start date *
+                    </label>
+                    <input
+                      id="current_policy_start_date"
+                      name="current_policy_start_date"
+                      type="date"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="current_policy_expiration_date" className="block text-sm font-medium mb-2">
+                      Policy expiration date *
+                    </label>
+                    <input
+                      id="current_policy_expiration_date"
+                      name="current_policy_expiration_date"
+                      type="date"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="current_coverage_limits" className="block text-sm font-medium mb-2">
+                      Current coverage limits *
+                    </label>
+                    <input
+                      id="current_coverage_limits"
+                      name="current_coverage_limits"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      placeholder="100/300/100"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="prior_auto_insurance" className="block text-sm font-medium mb-2">
+                      Prior auto insurance (any type, incl. a household member's) *
+                    </label>
+                    <input
+                      id="prior_auto_insurance"
+                      name="prior_auto_insurance"
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                      
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="insurance_card_upload" className="block text-sm font-medium mb-2">Current insurance ID card — upload</label>
+                    <input
+                      id="insurance_card_upload"
+                      name="insurance_card_upload"
+                      type="file"
+                      accept="image/*,application/pdf"
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors text-foreground"
+                    />
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4">
+                  Have these ready: your driver&apos;s licence, the VIN for every vehicle and
+                  trailer, and your current insurance ID card. Prefer not to type them? Email or
+                  text them to us and we&apos;ll quote from that.
+                </p>
+              </div>
+
               {/* Rider Information */}
               <div className="p-6 md:p-8 rounded-xl bg-card border border-border">
                 <h2 className="text-xl font-heading font-bold mb-6">Rider Information</h2>
