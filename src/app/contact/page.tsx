@@ -111,7 +111,7 @@ export default function ContactPage() {
                       <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                       <span>
                         <span className="block text-sm font-semibold text-foreground">Office</span>
-                        12220 E Riggs Road Suite #105
+                        12220 E Riggs Road Suite #104
                         <br />
                         Chandler, AZ 85249
                       </span>

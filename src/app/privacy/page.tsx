@@ -125,7 +125,7 @@ export default function PrivacyPage() {
                 </p>
                 <div className="mt-4 p-6 rounded-xl bg-card border border-border text-muted-foreground">
                   <p className="font-semibold text-foreground">Contractors Choice Agency</p>
-                  <p className="mt-2">12220 E Riggs Road Suite #105, Chandler, AZ 85249</p>
+                  <p className="mt-2">12220 E Riggs Road Suite #104, Chandler, AZ 85249</p>
                   <p className="mt-1">
                     Phone:{" "}
                     <a href="tel:8449675247" className="text-primary hover:text-primary/80 transition-colors">
