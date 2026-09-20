@@ -5,6 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adventurebikeinsurance.com"),
+  alternates: { canonical: "/" },
   title: {
     default: "Adventure Bike Insurance — Coverage for the Road Beyond Pavement",
     template: "%s | Adventure Bike Insurance",
